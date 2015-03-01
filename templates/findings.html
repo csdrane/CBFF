@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h2 class="text">Findings</h2>
+<h4 class="date">September 2, 2013</h4>
+<p>I created this site, in part, to investigate the link between investment returns and the number of thread replies / views. I have found little predictive value of thread activity on investment performance.</p>
+
+<p>Below are scatterplots of replies or views along the x axis and investment performance along the y axis. The two plots look nearly identical. (It stands to reason--a thread with the most replies is likely to have the most views as well.)</p>
+
+<img src="{{ url_for('static', filename='replies_rtd_090213.png') }}">
+
+<img src="{{ url_for('static', filename='views_rtd_090213.png') }}">
+
+<p>One interesting thing to note is the presence of a few significant outliers in terms of amount of thread activity. Returns for many of these outliers has been either very poor or above average, but by no means exceptional. For reference, the simple average return to date of the entire dataset is approximately 32%.</p>
+
+<p>At first glance, the remaining datapoints appear to show little relationship between thread activity and returns. However, eyeballing the charts, one actually sees that, ignoring the outliers, there appears to be an inverse relationship between thread activity and the <em>absolute value</em> of returns. To restate more clearly, those threads with either exceptionally strong or exceptionally poor performance actually appear to have some of the least activity.</p>
+
+<p>Below is a chart of the top ten companies by replies.</p>
+
+<div class="findings_table">
+<table>
+	<thead><th>Company</th><th>Creator</th><th>Replies</th><th>Views</th><th>Return to Date</th></thead>
+	<tr>
+	<td> Apple Inc. </td>
+	<td> indirect </td>
+	<td> 2,419 </td>
+	<td> 181,180 </td>
+	<td> 47.06% </td>
+	</tr>
+	<tr>
+	<td> Blackberry (Formerly RIM) </td>
+	<td> Viking </td>
+	<td> 2,230 </td>
+	<td> 205,412 </td>
+	<td> -83.66% </td>
+	</tr>
+	<tr>
+	<td> Sears </td>
+	<td> alertmeipp </td>
+	<td> 1,971 </td>
+	<td> 208,113 </td>
+	<td> -6.84% </td>
+	</tr>
+	<tr>
+	<td> Fortress Paper </td>
+	<td> Liberty </td>
+	<td> 1,499 </td>
+	<td> 192,242 </td>
+	<td> -81.75% </td>
+	</tr>
+	<tr>
+	<td> American International Group </td>
+	<td> PlanMaestro </td>
+	<td> 1,485 </td>
+	<td> 244,359 </td>
+	<td> 52.73% </td>
+	</tr>
+	<tr>
+	<td> Level 3 </td>
+	<td> doc75 </td>
+	<td> 1,425 </td>
+	<td> 138,458 </td>
+	<td> 63.81% </td>
+	</tr>
+	<tr>
+	<td> Altius Minerals </td>
+	<td> Dazel </td>
+	<td> 1,350 </td>
+	<td> 181,306 </td>
+	<td> -20.45% </td>
+	</tr>
+	<tr>
+	<td> MBIA Inc. </td>
+	<td> valuecfa </td>
+	<td> 1,349 </td>
+	<td> 176,904 </td>
+	<td> 20.22% </td>
+	</tr>
+	<tr>
+	<td> SandRidge Energy </td>
+	<td> SmallCap </td>
+	<td> 1,187 </td>
+	<td> 162,523 </td>
+	<td> -0.19% </td>
+	</tr>
+	<tr>
+	<td> Google </td>
+	<td> Liberty </td>
+	<td> 1,087 </td>
+	<td> 88,617 </td>
+	<td> 63.36% </td>
+	</tr>
+</table>
+</div>
+
+<p>Below is a chart of the top ten companies by returns to date.</p>
+
+<div class="findings_table">
+<table>
+	<thead><th>Company</th><th>Creator</th><th>Replies</th><th>Views</th><th>Return to Date</th></thead>
+	<tr>
+	<td> MGIC Investment </td>
+	<td> Buddy0807 </td>
+	<td> 2 </td>
+	<td> 545 </td>
+	<td> 759.52% </td>
+	</tr>
+	<tr>
+	<td> Multimedia Games </td>
+	<td> Packer16 </td>
+	<td> 2 </td>
+	<td> 473 </td>
+	<td> 747.52% </td>
+	</tr>
+	<tr>
+	<td> Hanfeng Evergreen </td>
+	<td> finetrader </td>
+	<td> 47 </td>
+	<td> 7,324 </td>
+	<td> 380.17% </td>
+	</tr>
+	<tr>
+	<td> Qihoo 360 </td>
+	<td> orion </td>
+	<td> 0 </td>
+	<td> 411 </td>
+	<td> 325.38% </td>
+	</tr>
+	<tr>
+	<td> FRMO Corp. </td>
+	<td> hellsten </td>
+	<td> 60 </td>
+	<td> 10,293 </td>
+	<td> 295.57% </td>
+	</tr>
+	<tr>
+	<td> Netflix </td>
+	<td> bmichaud </td>
+	<td> 82 </td>
+	<td> 8,470 </td>
+	<td> 266.95% </td>
+	</tr>
+	<tr>
+	<td> Overstock.com </td>
+	<td> Ballinvarosig Investors </td>
+	<td> 262 </td>
+	<td> 33,106 </td>
+	<td> 253.84% </td>
+	</tr>
+	<tr>
+	<td> Gray Television </td>
+	<td> Packer16 </td>
+	<td> 14 </td>
+	<td> 1,363 </td>
+	<td> 214.29% </td>
+	</tr>
+	<tr>
+	<td> Alliance Healthcare </td>
+	<td> Packer16 </td>
+	<td> 35 </td>
+	<td> 5,206 </td>
+	<td> 213.55% </td>
+	</tr>
+	<tr>
+	<td> H&R Block </td>
+	<td> mhdousa </td>
+	<td> 15 </td>
+	<td> 3,330 </td>
+	<td> 191.64% </td>
+	</tr>
+</table>
+</div>
+
+<p>I think congratulations are in order for Packer16, who has 3 ideas in the Top 10. Great job!</p>
+
+<p>I also find it striking how the board has devoted most of its attention to a handful of investments that have performed just OK, while the very best investments have been ignored in many instances. Qihoo 360 actually received zero replies, and the very best investment, MGIC, received only two. </p>
+
+{% endblock %}

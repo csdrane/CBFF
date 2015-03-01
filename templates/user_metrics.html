@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+	<table class=entries>
+		<thead><td><h2>Creator</h2></td><td><h2>#Companies</h2></td></thead>
+		{% for creator in creators %}
+			{% if creator.companies %}
+			<tr><td><a href="/cobff/user/{{ creator }}">{{ creator }}</a></td>
+				<td>{{ creator.num_cos }}</td>
+			{% endif %}
+			</tr>
+		{% else %}
+			<td><em>Unbelievable. No entries here so far.</em></td>
+		{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!doctype html>
+<head>
+<title>Corner of Berk-Scraper and Fun-Facts</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+{% block head %}{% endblock %}
+</head>
+<body>
+<div class=page>
+	<h1><a href="/cobff" style="text-decoration:none">Corner of Berk-Scraper and Fun-Facts</a></h1>
+	<div class=metanav>
+	<a href="/cobff/ticker">companies</a>  <a href="/cobff">users</a> <a href="/cobff/faq">faq</a> <a href="/cobff/findings">findings</a>
+	</div>
+	{% block body %}{% endblock %}
+</div>
+</body>
+<footer><p>Last updated: September 2, 2013</p>
+<a href="http://chrisdrane.com">chrisdrane.com</a></footer>

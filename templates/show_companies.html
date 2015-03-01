@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+	{% if creators %}
+		<table>
+			<thead><th><h2>Creator</h2></th><th><h2>Companies</h2></th><th><h2>Return to Date</h2></th></thead>
+			{% for creator in creators %}
+				{% if creator.companies %}
+					{% set i = 0 %}
+					{% for company in creator.companies %}
+						{% if i == 0 %}
+							<tr class="user_list"><td><a href="/cobff/user/{{ creator }}">{{ creator }}</a></td>
+						{% else %}
+							<tr><td></td>
+						{% endif %}
+						<td><a href="/cobff/ticker/{{ company.ticker }}">{{ company.company }}</a></td>
+						{% set i = i + 1 %}
+						<td>{{ '%0.2f' % company.return_to_date|float }}%</td></tr>
+					{% endfor %}
+				{% endif %}
+			{% else %}
+				<td><em>Unbelievable. No entries here so far.</em></td>
+			{% endfor %}
+		</table>
+	{% elif companies %}
+		<div class="sortbox">
+			<p class="sortbox-header">sort by:</p>
+			<p class="sortbox">company (<a href="/cobff/ticker/sortby=ca">asc</a> / <a href="/cobff/ticker/sortby=cd">desc</a>)</p>
+			<p class="sortbox"> return (<a href="/cobff/ticker/sortby=ra">asc</a> / <a href="/cobff/ticker/sortby=rd">desc</a>)</p>
+		</div>
+		<table>
+			<thead><th><h2>Companies</h2></th><th><h2>Return to Date</h2></th></thead>
+				{% for company in companies %}
+					<tr><td><a href="/cobff/ticker/{{ company.ticker }}">{{ company.company }}</a></td><td>{{ '%0.2f' % company.return_to_date|float }}%</td></tr>
+			{% else %}
+				<dd><em>Unbelievable. No entries here so far.</em></dd>
+			{% endfor %}
+		</table>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h2 class="text">Frequently Asked Questions</h2>
+
+<p class="question">What is this?</p>
+
+<p class="answer">This site summarizes data scraped from <a href="http://cornerofberkshireandfairfax.ca/forum/">Corner of Berkshire & Fairfax</a> (COBFF), a value investing webforum.</p>
+
+<p class="question">What's with the name?</p>
+
+<p class="answer">I never claimed to be good at naming things.</p>
+
+<p class="question">What does this site do?</p>
+
+<p class="answer">I wrote a Python script that crawls COBFF and scrapes out the formally-posted investment ideas. This was possible because the Investment Ideas subforum requests that users post using the format <em>&lt;ticker symbol&gt; - &lt;company name&gt;</em>. Price data is pulled from Yahoo Finance, and returns are calculated by comparing recent pricing against pricing as of the thread creation date.</p>
+
+<p class="question">Why did you do this?</p>
+
+<p class="answer">For a few reasons. I love coding, and I love value investing. This project seemed like a good mix of the two. Additionally, I wanted to answer some questions I had. Namely, I wanted to investigate the relationship on COBFF between thread views and replies and stock performance. I also thought it might be fun to track who the best posters are.</p>
+
+<p class="question">What are the limitations of this project?</p>
+
+<p class="answer">There are many! This website should not be interpreted as a reflection on any particular user's investmenting acumen. Investing is difficult, and so is evaluating an investor's track record. Further, investing performance is contingent not only on good ideas, but also buying and selling at the right time. The prices this site uses to calculate returns are, in a sense, arbitrary, in that they do not necessary reflect the prices that the thread creator would have bought and sold at. Value investors often average their cost basis down if a stock declines in value while the thesis remains fundamentally unchanged. This site cannot account for this. Similarily, a value investor would sell a stock after it rises above its intrinsic value. This website has no way of knowing what that price would be, and instead uses recent pricing to evaluate returns.</p>
+
+<p class="answer">There are some other limitations as well. Certain investments may be absent due to ticker symbol changes (BBRY), actual tickers that differ from the thread subject (BAC-WT), and certain unusual securities. Additionally, in some instances (due to improperly formatted thread subjects) the possibility exists that the ticker could be wrong altogether. An example of this is the case of OI S.A., ticker OIBR, but which was posted as OI. S.A. - OIBR. And finally, the site is unable to account for survivorship bias in the case of bankrupted companies (ATPG).</p>
+
+<p class="question">How did you code this?</p>
+
+<p class="answer">As I said, I wrote the website in Python. It uses SQLAlchemy to manage database interactions and the Flask web framework.</p>
+
+<p class="question">Who are you?</p>
+
+<p class="answer">My name is Chris Drane. You can contact me at csdrane at gmail.com. Additionally you can find me on twitter at <a href="https://twitter.com/dogwillhunting">@dogwillhunting</a> and visit my blog at <a href="http://blog.chrisdrane.com">blog.chrisdrane.com</a>.</p>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+	{% if company %}
+		<h2>{{ company.ticker }} - {{ company.company }}, created by <a href="/cobff/user/{{ company.creator }}">{{ company.creator }}</a></h2>
+	
+	<div class="company_data">
+		<dl>
+			<dt>Initially Posted: </dt>
+			<dd>{{ company.creation_date|date }}</dd>
+
+			<dt>Latest Price: </dt>
+			<dd>{{ '%0.2f' % company.prices[0].adj_close|float }}</dd>
+
+			<dt>Original Price: </dt>
+			<dd>{{ '%0.2f' % company.initial_price|float }}</dd>
+			
+			<dt>Return to Date: </dt>
+			<dd>{{ '%0.2f' % (company.return_to_date|float) }}%</dd>
+
+			<dt>Replies: </dt>
+			<dd>{{ company.replies }}</dd>
+			
+			<dt>Views: </dt>
+			<dd>{{ company.views }}</dd>
+
+			<dt><a href={{ company.link }} target="_blank">thread link</a></dt>
+		</dl>
+	</div>
+	{% else %}
+		<dd><em>Unbelievable. No entries here so far.</em></dd>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+	{% if creator %}
+		<h2>{{ creator }}</h2>
+			<p>
+			<table class=entries>
+			<thead><th><h2>Companies</h2></th><th><h2>Return to Date</h2></th></thead>
+			{% for company in creator.companies %}
+				<tr><td><a href="/cobff/ticker/{{ company.ticker }}">{{ company.company }}</a></td><td>{{ '%0.2f' % (company.return_to_date|float) }}%</td></tr>
+			{% endfor %}
+			</table>
+		{% else %}
+			<dd><em>Unbelievable. No entries here so far.</em></dd>
+	{% endif %}
+
+{% endblock %}
